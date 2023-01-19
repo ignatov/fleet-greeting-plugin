@@ -5,6 +5,7 @@ module fleet.greeting.plugin.frontend {
     requires fleet.rhizomedb;
     requires fleet.frontend.ui;
     requires fleet.greeting.plugin.common;
+    requires fleet.run.common;
 
     exports greeting.frontend;
 }

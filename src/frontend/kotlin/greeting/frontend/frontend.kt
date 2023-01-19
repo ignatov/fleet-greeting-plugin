@@ -4,10 +4,12 @@ import com.jetbrains.rhizomedb.Entity
 import com.jetbrains.rhizomedb.Entrypoint
 import com.jetbrains.rhizomedb.byEntityType
 import com.jetbrains.rhizomedb.lookup
+import fleet.common.run.DebugSupportEntity
 import fleet.frontend.actions.ActionsEP
 import fleet.frontend.actions.windowManager
 import fleet.kernel.ChangeScope
 import fleet.kernel.register
+import fleet.protocol.run.TaskType
 import greeting.common.ExampleSharedEntity
 import greeting.common.FooEntity
 import noria.model.Action
@@ -59,5 +61,11 @@ fun UIContext.renderFoo(e: FooEntity) {
         hbox {
             uiText("Foo")
         }
+    }
+}
+
+fun ChangeScope.foo() {
+    new(DebugSupportEntity::class) {
+        type = TaskType("abvgd")
     }
 }
