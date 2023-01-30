@@ -6,7 +6,8 @@ plugins {
 
 fleet {
 //    fleetPath.set("/Users/ignatov/Fleet/87120b1bf721e-debug/Fleet.app")
-    fleetVersion.set("1.15.6")
+    fleetVersion.set("1.15.8")
+    useNightlyBuilds.set(true)
 
     workspace {
     }
@@ -23,7 +24,6 @@ fleet {
 }
 
 repositories {
-    jcenter()
     mavenLocal()
     mavenCentral()
     maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
