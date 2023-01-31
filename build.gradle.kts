@@ -4,9 +4,11 @@ plugins {
     id("org.jetbrains.fleet") version "0.2-SNAPSHOT"
 }
 
+version = "0.1.0"
+
 fleet {
 //    fleetPath.set("/Users/ignatov/Fleet/87120b1bf721e-debug/Fleet.app")
-    fleetVersion.set("1.15.8")
+    fleetVersion.set("1.15.24")
     useNightlyBuilds.set(true)
 
     workspace {
