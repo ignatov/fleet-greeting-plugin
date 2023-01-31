@@ -4,7 +4,7 @@ plugins {
     id("org.jetbrains.fleet") version "0.2-SNAPSHOT"
 }
 
-version = "0.1.0"
+version = "0.1.1"
 
 fleet {
 //    fleetPath.set("/Users/ignatov/Fleet/87120b1bf721e-debug/Fleet.app")
@@ -21,6 +21,10 @@ fleet {
     common {
         add("org.apache.samza:samza-shell:0.13.1")
     }
+
+    vendor.set("Sergey Ignatov")
+    readableName.set("Fleet Greeting New Plugin")
+    descriptor.set("A test plugin for Fleet")
 
     plugins.addAll("fleet.run")
 }
