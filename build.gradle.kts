@@ -1,16 +1,5 @@
-// this block is only needed because the repo is private to us for now
-val spaceUsername: String by project
-val spacePassword: String by project
 repositories {
-  mavenCentral()
-  maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
-  maven {
-    url = uri("https://packages.jetbrains.team/maven/p/fleet/fleet-sdk")
-    credentials {
-      username = spaceUsername
-      password = spacePassword
-    }
-  }
+    mavenCentral()
 }
 
 plugins {
@@ -22,7 +11,6 @@ plugins {
 version = "0.1.2"
 
 fleet {
-//    fleetPath.set("/Users/ignatov/Fleet/183356a708cd4-debug/Fleet.app/")
     fleetVersion.set("1.15.34")
     useNightlyBuilds.set(true)
 
@@ -47,10 +35,4 @@ fleet {
     descriptor.set("A test plugin for Fleet")
 
     plugins.addAll("fleet.run")
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
 }

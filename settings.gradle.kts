@@ -12,11 +12,17 @@ rootProject.name = "fleet-greeting-plugin"
 
 pluginManagement {
     repositories {
-        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
         maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
-        maven("https://packages.jetbrains.team/maven/p/fleet/fleet-sdk")
+        maven("https://packages.jetbrains.team/maven/p/teamcity-rest-client/teamcity-rest-client")
+        maven {
+            url = uri("https://packages.jetbrains.team/maven/p/fleet/fleet-sdk")
+            credentials {
+                username = settings.providers.gradleProperty("spaceUsername").orNull
+                password = settings.providers.gradleProperty("spacePassword").orNull
+            }
+        }
     }
 }
 
