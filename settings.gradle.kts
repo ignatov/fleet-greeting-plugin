@@ -15,8 +15,9 @@ pluginManagement {
         mavenLocal()
         mavenCentral()
         gradlePluginPortal()
-        maven("https://cache-redirector.jetbrains.com/intellij-dependencies") // WTF??
+        maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
+        maven("https://packages.jetbrains.team/maven/p/fleet/fleet-sdk")
     }
 }
 
-includeBuild("/Users/ignatov/src/intellij/fleet/gradle-plugin")
+//includeBuild("/Users/ignatov/src/intellij/fleet/gradle-plugin")
