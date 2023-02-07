@@ -1,17 +1,18 @@
 repositories {
     mavenCentral()
+    maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
 }
 
 plugins {
     kotlin("jvm") version "1.8.0"
     `kotlin-dsl`
-    id("org.jetbrains.fleet-plugin") version "0.1.10"
+    id("org.jetbrains.fleet-plugin") version "0.1.12"
 }
 
-version = "0.1.2"
+version = "0.1.3"
 
 fleet {
-    fleetVersion.set("1.15.34")
+    fleetVersion.set("1.16.7")
     useNightlyBuilds.set(true)
 
     workspace {
