@@ -6,6 +6,7 @@ module fleet.greeting.plugin.frontend {
     requires fleet.frontend.ui;
     requires fleet.greeting.plugin.common;
     requires fleet.run.common;
+    requires fleet.util.logging.api;
 
     exports greeting.frontend;
 }

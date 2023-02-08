@@ -3,7 +3,6 @@ package greeting.frontend
 import com.jetbrains.rhizomedb.Entity
 import com.jetbrains.rhizomedb.Entrypoint
 import com.jetbrains.rhizomedb.byEntityType
-import com.jetbrains.rhizomedb.lookup
 import fleet.common.run.DebugSupportEntity
 import fleet.frontend.actions.ActionsEP
 import fleet.frontend.actions.windowManager
@@ -22,9 +21,11 @@ import noria.ui.core.UIContext
 import noria.ui.text.uiText
 import noria.windowManagement.extensions.openUrl
 
+val logger = fleet.util.logging.logger<Any>()
+
 @Entrypoint
 fun ChangeScope.registerOpenFleetUrlAction() {
-    println("Register Open Fleet action")
+    logger.info("Register Open Fleet action")
     register {
         ActionsEP.register {
             Action(
@@ -34,13 +35,13 @@ fun ChangeScope.registerOpenFleetUrlAction() {
 
                     val shared = byEntityType(ExampleSharedEntity::class).firstOrNull()
 
-                    println("shared: " + shared?.name)
+                    logger.info("queried shared entity: " + shared?.name)
 
                     kernel.changeAsync {
                         val f = new(FooEntity::class) {
                             name = "Foo"
                         }
-                        println(f.name)
+                        logger.info("new entity name:" + f.name)
                     }
                     Propagate.STOP
                 },

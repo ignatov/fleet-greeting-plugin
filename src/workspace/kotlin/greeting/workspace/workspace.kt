@@ -3,15 +3,18 @@ package greeting.workspace
 import com.jetbrains.rhizomedb.Entrypoint
 import fleet.kernel.ChangeScope
 import fleet.kernel.saga
+import fleet.util.logging.logger
 import greeting.common.ExampleSharedEntity
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 
+val logger = logger<HttpClient>()
+
 @Entrypoint
 fun ChangeScope.entry() {
-    println(
+    logger.info(
         "=".repeat(50) + "\n" +
                 "transacting ${ExampleSharedEntity::class}...\n" +
                 "=".repeat(50)
@@ -25,7 +28,7 @@ fun ChangeScope.entry() {
     kernel.saga {
         HttpClient(CIO).use { client ->
             val response: HttpResponse = client.get("https://ktor.io/")
-            println("KTOR response: " + response.status)
+            logger.info("KTOR response: " + response.status)
         }
     }
 }
