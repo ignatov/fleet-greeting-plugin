@@ -29,7 +29,7 @@ fun ChangeScope.registerSampleNotificationHarness() {
     ActionsEP.register {
       Action(
         defaultPresentation = ActionPresentation("Show Sample Notification"),
-        perform = { ac ->
+        perform = {
           kernel.changeAsync {
             new(SampleNotification::class) {
               init(NotificationState.new(true), "Sample Caption", SampleNotificationCategory.id)
