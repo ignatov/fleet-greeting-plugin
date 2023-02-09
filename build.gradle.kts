@@ -6,7 +6,7 @@ repositories {
 plugins {
     kotlin("jvm") version "1.8.0"
     `kotlin-dsl`
-    id("org.jetbrains.fleet-plugin") version "0.1.12"
+    id("org.jetbrains.fleet-plugin") version "0.1.16"
 }
 
 version = "0.1.3"
