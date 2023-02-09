@@ -32,11 +32,8 @@ fun ChangeScope.registerOpenFleetUrlAction() {
                 defaultPresentation = ActionPresentation("Open Fleet"),
                 perform = { ac ->
                     ac.windowManager.openUrl("https://jetbrains.com/fleet")
-
                     val shared = byEntityType(ExampleSharedEntity::class).firstOrNull()
-
                     logger.info("queried shared entity: " + shared?.name)
-
                     kernel.changeAsync {
                         val f = new(FooEntity::class) {
                             name = "Foo"
@@ -45,13 +42,16 @@ fun ChangeScope.registerOpenFleetUrlAction() {
                     }
                     Propagate.STOP
                 },
-                triggers = setOf(trigger)
+                triggers = setOf(OPEN_FLEET_WEBSITE_TRIGGER)
             )
         }
+
+
     }
 }
 
-val trigger = Trigger("Foo")
+
+private val OPEN_FLEET_WEBSITE_TRIGGER = Trigger("open-fleet-webstite")
 
 interface FrontendEntity : Entity {
     var bar: String
@@ -70,3 +70,4 @@ fun ChangeScope.foo() {
         type = TaskType("abvgd")
     }
 }
+
