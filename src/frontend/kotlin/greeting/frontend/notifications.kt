@@ -39,6 +39,7 @@ fun ChangeScope.registerSampleNotificationHarness() {
           }
           Propagate.STOP
         },
+        identifier = "Show Sample Notification",
         triggers = setOf(SHOW_SAMPLE_NOTIFICATION)
       )
     }
